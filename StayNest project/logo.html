@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayNest</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #2563eb;
+            font-family: Arial, sans-serif;
+        }
+
+        .logo {
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="logo">StayNest</div>
+
+    <script>
+        // Redirect to registration page after 3 seconds
+        setTimeout(function () {
+            window.location.href = "register.html";
+        }, 3000);
+    </script>
+
+</body>
+</html>
