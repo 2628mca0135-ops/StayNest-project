@@ -1,302 +1,568 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>StayNest - PG List</title>
+
     <link rel="stylesheet" href="css/pg-style.css">
+
     <style>
-        
-* {
-    box-sizing: border-box;
-}
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f9fafb;
-    color: #333333;
-    line-height: 1.6;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-h1, h2, h3 {
-    color: #1e3a8a;
-}
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9fafb;
+            color: #333333;
+            line-height: 1.6;
+        }
 
-/* ---------- Navbar ---------- */
-.navbar {
-    background-color: #2563eb;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
+        h1, h2, h3 {
+            color: #1e3a8a;
+        }
 
-.logo {
-    color: white;
-    font-size: 26px;
-    font-weight: bold;
-    text-decoration: none;
-}
 
-.navbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-}
+        /* ---------- Navbar ---------- */
 
-.navbar li {
-    margin-left: 25px;
-}
+        .navbar {
+            background-color: #2563eb;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
 
-.navbar a {
-    color: white;
-    text-decoration: none;
-}
+        .logo {
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+            text-decoration: none;
+        }
 
-.navbar li a {
-    padding-bottom: 3px;
-}
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-.navbar li a:hover,
-.navbar li a.active {
-    border-bottom: 2px solid white;
-}
+        .navbar li {
+            margin-left: 25px;
+        }
 
-/* ---------- Hero ---------- */
-.hero {
-    background-color: #dbeafe;
-    text-align: center;
-    padding: 80px 20px;
-}
+        .navbar a {
+            color: white;
+            text-decoration: none;
+        }
 
-.hero h1 {
-    font-size: 40px;
-    margin: 0 0 10px 0;
-}
+        .navbar li a {
+            padding-bottom: 3px;
+        }
 
-.hero p {
-    font-size: 18px;
-    margin-bottom: 25px;
-}
+        .navbar li a:hover,
+        .navbar li a.active {
+            border-bottom: 2px solid white;
+        }
 
-/* ---------- Button ---------- */
-.btn {
-    display: inline-block;
-    background-color: #2563eb;
-    color: white;
-    padding: 10px 22px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-}
 
-.btn:hover {
-    background-color: #1e40af;
-}
+        /* ---------- Search Section ---------- */
 
-/* ---------- Sections ---------- */
-.section {
-    text-align: center;
-    padding: 45px 20px;
-}
+        .search-section {
+            background-color: #dbeafe;
+            text-align: center;
+            padding: 45px 20px;
+        }
 
-.section h2 {
-    margin-top: 0;
-    margin-bottom: 20px;
-}
+        .search-section h1 {
+            margin: 0 0 10px 0;
+            font-size: 36px;
+        }
 
-.gray {
-    background-color: #f3f4f6;
-}
+        .search-section p {
+            margin-bottom: 25px;
+            font-size: 17px;
+        }
 
-.box-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+        .search-box {
+            max-width: 650px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
 
-.box {
-    width: 230px;
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    background-color: white;
-    padding: 20px;
-    margin: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-}
+        .search-box input {
+            flex: 1;
+            padding: 13px 15px;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+        }
 
-.box:hover {
-    border-color: #2563eb;
-}
+        .search-box input:focus {
+            border-color: #2563eb;
+        }
 
-.box h3 {
-    margin-top: 0;
-}
+        .search-box button {
+            padding: 13px 25px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-/* ---------- PG List ---------- */
-.pg-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0 20px 50px 20px;
-}
+        .search-box button:hover {
+            background-color: #1e40af;
+        }
 
-.pg-card {
-    width: 290px;
-    background-color: white;
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 12px;
-    text-align: left;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-}
 
-.pg-card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
+        /* ---------- Location Links ---------- */
 
-.pg-card img {
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
-    border-radius: 6px;
-}
+        .locations {
+            text-align: center;
+            padding: 25px 20px;
+        }
 
-.pg-card h3 {
-    margin: 12px 0 8px 0;
-}
+        .locations h3 {
+            margin-bottom: 15px;
+        }
 
-.pg-card p {
-    margin: 4px 0;
-}
+        .location-link {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 15px;
+            background-color: white;
+            border: 1px solid #2563eb;
+            border-radius: 20px;
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 14px;
+        }
 
-.pg-card .btn {
-    margin-top: 12px;
-}
+        .location-link:hover {
+            background-color: #2563eb;
+            color: white;
+        }
 
-/* ---------- PG Details ---------- */
-.details {
-    max-width: 520px;
-    margin: 35px auto;
-    padding: 25px;
-    background-color: white;
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-}
 
-.details img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 6px;
-}
+        /* ---------- Button ---------- */
 
-.details h1 {
-    margin-bottom: 10px;
-}
+        .btn {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            padding: 10px 22px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
 
-.details .btn {
-    margin-top: 15px;
-}
+        .btn:hover {
+            background-color: #1e40af;
+        }
 
-/* ---------- Footer ---------- */
-.footer {
-    background-color: #1f2937;
-    color: white;
-    text-align: center;
-    padding: 18px;
-}
 
-.footer p {
-    margin: 0;
-}
+        /* ---------- PG List ---------- */
 
-/* ---------- Mobile ---------- */
-@media (max-width: 600px) {
-    .navbar {
-        flex-direction: column;
-    }
+        .pg-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 20px 50px 20px;
+        }
 
-    .navbar li {
-        margin: 10px 10px 0 10px;
-    }
+        .pg-card {
+            width: 290px;
+            background-color: white;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 12px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
 
-    .hero h1 {
-        font-size: 30px;
-    }
+        .pg-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
 
-    .pg-card,
-    .box {
-        width: 100%;
-    }
-}
+        .pg-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .pg-card h3 {
+            margin: 12px 0 8px 0;
+        }
+
+        .pg-card p {
+            margin: 4px 0;
+        }
+
+        .pg-card .btn {
+            margin-top: 12px;
+        }
+
+
+        /* ---------- Footer ---------- */
+
+        .footer {
+            background-color: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 18px;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+
+        /* ---------- Mobile ---------- */
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                flex-direction: column;
+            }
+
+            .navbar li {
+                margin: 10px 10px 0 10px;
+            }
+
+            .search-section h1 {
+                font-size: 30px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-box input,
+            .search-box button {
+                width: 100%;
+            }
+
+            .pg-card {
+                width: 100%;
+            }
+
+        }
 
     </style>
+
 </head>
+
 <body>
 
+
+    <!-- ---------- Navbar ---------- -->
+
     <div class="navbar">
-        <a href="index.html" class="logo">StayNest</a>
+
+        <a href="index.html" class="logo">
+            StayNest
+        </a>
+
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="pg-list.html" class="active">Find PG</a></li>
-            <li><a href="index.html#facilities">Facilities</a></li>
-            <li><a href="index.html#room-types">Room Types</a></li>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="pg-list.html" class="active">
+                    Find PG
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#facilities">
+                    Facilities
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#room-types">
+                    Room Types
+                </a>
+            </li>
+
         </ul>
+
     </div>
 
-    <div class="section">
-        <h1>Find Your Perfect PG</h1>
-        <p>Find comfortable and affordable PGs near you.</p>
+
+    <!-- ---------- Search ---------- -->
+
+    <div class="search-section">
+
+        <h1>
+            Find Your Perfect PG
+        </h1>
+
+        <p>
+            Search PGs according to your preferred location.
+        </p>
+
+        <form class="search-box" action="#" method="get">
+
+            <input
+                type="search"
+                name="location"
+                list="locations"
+                placeholder="Enter location e.g. Muradnagar"
+            >
+
+            <datalist id="locations">
+
+                <option value="Meerut Road">
+                <option value="Muradnagar">
+                <option value="Mohanagar">
+                <option value="Indirapuram">
+                <option value="Near KIET College">
+                <option value="Opposite KIET College">
+
+            </datalist>
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
     </div>
+
+
+    <!-- ---------- Popular Locations ---------- -->
+
+    <div class="locations">
+
+        <h3>
+            Popular Locations
+        </h3>
+
+        <a href="#meerut-road" class="location-link">
+            Meerut Road
+        </a>
+
+        <a href="#muradnagar" class="location-link">
+            Muradnagar
+        </a>
+
+        <a href="#mohanagar" class="location-link">
+            Mohanagar
+        </a>
+
+        <a href="#indirapuram" class="location-link">
+            Indirapuram
+        </a>
+
+        <a href="#kiet" class="location-link">
+            KIET College
+        </a>
+
+    </div>
+
+
+    <!-- ---------- PG Cards ---------- -->
 
     <div class="pg-container">
-        <div class="pg-card">
-            <img src="images/pg2.jpg" alt="Sunshine Girls PG">
-            <h3>Sunshine Girls PG</h3>
-        
-            <a href="sunshine-girls-pg.html" class="btn">View Details</a>
+
+
+        <!-- Sunshine Girls PG -->
+
+        <div class="pg-card" id="kiet">
+
+            <img
+                src="images/pg2.jpg"
+                alt="Sunshine Girls PG"
+            >
+
+            <h3>
+                Sunshine Girls PG
+            </h3>
+
+            <p>
+                📍 Near KIET College
+            </p>
+
+            <a
+                href="sunshine-girls-pg.html"
+                class="btn"
+            >
+                View Details
+            </a>
+
         </div>
+
+
+        <!-- Comfort Stay Boys PG -->
+
         <div class="pg-card">
-            <img src="images/OIP (1).webp" alt="Comfort Stay Boys PG">
-           <h3>Comfort Stay Boys PG</h3>
-            <a href="comfort-stay-boys-pg.html" class="btn">View Details</a>
+
+            <img
+                src="images/OIP (1).webp"
+                alt="Comfort Stay Boys PG"
+            >
+
+            <h3>
+                Comfort Stay Boys PG
+            </h3>
+
+            <p>
+                📍 Muradnagar
+            </p>
+
+            <a
+                href="comfort-stay-boys-pg.html"
+                class="btn"
+            >
+                View Details
+            </a>
+
         </div>
+
+
+        <!-- Happy Home Girls PG -->
+
+        <div class="pg-card" id="meerut-road">
+
+            <img
+                src="images/OIP.webp"
+                alt="Happy Home Girls PG"
+            >
+
+            <h3>
+                Happy Home Girls PG
+            </h3>
+
+            <p>
+                📍 Meerut Road
+            </p>
+
+            <a
+                href="happy-home-girls-pg.html"
+                class="btn"
+            >
+                View Details
+            </a>
+
+        </div>
+
+
+        <!-- Green View Girls PG -->
+
+        <div class="pg-card" id="mohanagar">
+
+            <img
+                src="images/pg4.jpg"
+                alt="Green View Girls PG"
+            >
+
+            <h3>
+                Green View Girls PG
+            </h3>
+
+            <p>
+                📍 Mohanagar
+            </p>
+
+            <a
+                href="green-view-girls-pg.html"
+                class="btn"
+            >
+                View Details
+            </a>
+
+        </div>
+
+
+        <!-- Student Nest Girls PG -->
+
+        <div class="pg-card" id="indirapuram">
+
+            <img
+                src="images/pg5.webp"
+                alt="Student Nest Girls PG"
+            >
+
+            <h3>
+                Student Nest Girls PG
+            </h3>
+
+            <p>
+                📍 Indirapuram
+            </p>
+
+            <a
+                href="student-nest-girls-pg.html"
+                class="btn"
+            >
+                View Details
+            </a>
+
+        </div>
+
+
+        <!-- Royal Residency Boys PG -->
+
         <div class="pg-card">
-            <img src="images/OIP.webp" alt="Happy Home Girls PG">
-            <h3>Happy Home Girls PG</h3>
-            
-            <a href="happy-home-girls-pg.html" class="btn">View Details</a>
+
+            <img
+                src="images/single-room-2.jpg"
+                alt="Royal Residency Boys PG"
+            >
+
+            <h3>
+                Royal Residency Boys PG
+            </h3>
+
+            <p>
+                📍 Opposite KIET College
+            </p>
+
+            <a
+                href="royal-residency-boys-pg.html"
+                class="btn"
+            >
+                View Details
+            </a>
+
         </div>
-        <div class="pg-card">
-            <img src="images/pg4.jpg" alt="Green View Girls PG">
-            <h3>Green View Girls PG</h3>
-            <a href="green-view-girls-pg.html" class="btn">View Details</a>
-        </div>
-        <div class="pg-card">
-            <img src="images/pg5.webp" alt="Student Nest Girls PG">
-            <h3>Student Nest Girls PG</h3>
-            
-            <a href="student-nest-girls-pg.html" class="btn">View Details</a>
-        </div>
-        <div class="pg-card">
-            <img src="images/single-room-2.jpg" alt="Royal Residency Boys PG">
-            <h3>Royal Residency Boys PG</h3>
-           
-            <a href="royal-residency-boys-pg.html" class="btn">View Details</a>
-        </div>
+
     </div>
 
+
+    <!-- ---------- Footer ---------- -->
+
     <div class="footer">
-        <p>&copy; 2026 StayNest PG Finder | Frontend Project</p>
+
+        <p>
+            &copy; 2026 StayNest PG Finder | Frontend Project
+        </p>
+
     </div>
 
 </body>
+
 </html>
+
